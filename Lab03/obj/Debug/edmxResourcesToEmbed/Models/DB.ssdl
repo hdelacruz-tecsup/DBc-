@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_lab03Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'db_lab03.dbo.usuario1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="usuario1">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="db_lab03ModelStoreContainer">
+    <EntitySet Name="usuario1" EntityType="Self.usuario1" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [usuario1].[id] AS [id], 
+    [usuario1].[nombre] AS [nombre], 
+    [usuario1].[password] AS [password]
+    FROM [dbo].[usuario1] AS [usuario1]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
